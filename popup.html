@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SumBot</title>
+    <!-- Google Fonts – Press Start 2P for 8-bit aesthetic -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" />
+    <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- ===== Header ===== -->
+        <header class="header">
+            <div class="header-icon">&#9733;</div>
+            <h1 class="title">SumBot</h1>
+            <p class="subtitle">8-Bit Summarizer</p>
+        </header>
+
+        <!-- ===== Action Buttons ===== -->
+        <div class="btn-group">
+            <button id="btn-selection" class="pixel-btn primary" title="Summarise highlighted text">
+                &#9998; Summarise Selection
+            </button>
+            <button id="btn-page" class="pixel-btn secondary" title="Summarise the whole page">
+                &#9776; Summarise Page
+            </button>
+        </div>
+
+        <!-- ===== Summary Length Slider ===== -->
+        <div class="slider-row">
+            <label for="sentence-count" class="slider-label">Sentences:</label>
+            <input id="sentence-count" type="range" min="1" max="10" value="5" class="pixel-range" />
+            <span id="sentence-value" class="slider-value">5</span>
+        </div>
+
+        <!-- ===== Output Area ===== -->
+        <div id="output-wrapper" class="output-wrapper hidden">
+            <div class="output-header">
+                <span class="output-title">&#9654; Summary</span>
+                <button id="btn-copy" class="pixel-btn small" title="Copy to clipboard">Copy</button>
+            </div>
+            <div id="summary-output" class="output-text"></div>
+        </div>
+
+        <!-- ===== Status Bar ===== -->
+        <div id="status-bar" class="status-bar">Ready.</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="summarizer.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>

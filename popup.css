@@ -1,0 +1,298 @@
+/* ===========================================================
+   SumBot – 8-Bit Chrome Extension Stylesheet
+   Palette
+     Main    : Light Blue  #87CEEB  |  Green   #5BCB5B
+     Secondary: Light Brown #C4A46C  |  Dark Brown #5C3D1E
+   Font     : "Press Start 2P" (pixel / 8-bit)
+   =========================================================== */
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+}
+
+body {
+    width: 370px;
+    min-height: 280px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+/* ---------- Container ---------- */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+    border: 4px solid #5C3D1E;
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+}
+
+/* ---------- Header ---------- */
+.header {
+    text-align: center;
+    padding: 10px 0 6px;
+    border: 3px solid #5BCB5B;
+    background-color: rgba(91, 203, 91, 0.08);
+    box-shadow:
+        inset 0 0 0 2px #1a1a2e,
+        0 4px 0 #5C3D1E;
+}
+
+.header-icon {
+    font-size: 22px;
+    color: #87CEEB;
+    text-shadow: 2px 2px 0 #5C3D1E;
+    margin-bottom: 2px;
+}
+
+.title {
+    font-size: 18px;
+    color: #5BCB5B;
+    text-shadow:
+        3px 3px 0 #5C3D1E,
+        -1px -1px 0 #1a1a2e;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 8px;
+    color: #87CEEB;
+    margin-top: 4px;
+    letter-spacing: 1px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pixel-btn {
+    font-family: "Press Start 2P", monospace;
+    font-size: 9px;
+    padding: 10px 12px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: transform 0.05s;
+    color: #1a1a2e;
+}
+
+/* 8-bit raised-button effect using box-shadow */
+.pixel-btn::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: 0;
+}
+
+.pixel-btn:active {
+    transform: translateY(3px);
+}
+
+.pixel-btn:active::after {
+    height: 1px;
+}
+
+/* Primary – green */
+.pixel-btn.primary {
+    background-color: #5BCB5B;
+    box-shadow:
+        0 4px 0 #3a8a3a,
+        inset 0 -2px 0 rgba(0, 0, 0, 0.15),
+        inset 0 2px 0 rgba(255, 255, 255, 0.20);
+}
+
+.pixel-btn.primary:hover {
+    background-color: #6fdb6f;
+}
+
+/* Secondary – light blue */
+.pixel-btn.secondary {
+    background-color: #87CEEB;
+    box-shadow:
+        0 4px 0 #5a9bb5,
+        inset 0 -2px 0 rgba(0, 0, 0, 0.15),
+        inset 0 2px 0 rgba(255, 255, 255, 0.20);
+}
+
+.pixel-btn.secondary:hover {
+    background-color: #9fd9f0;
+}
+
+/* Small button (copy) */
+.pixel-btn.small {
+    font-size: 7px;
+    padding: 5px 8px;
+    background-color: #C4A46C;
+    box-shadow:
+        0 3px 0 #5C3D1E,
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
+    color: #1a1a2e;
+}
+
+.pixel-btn.small:hover {
+    background-color: #d4b87e;
+}
+
+/* ---------- Slider ---------- */
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border: 2px solid #C4A46C;
+    background-color: rgba(196, 164, 108, 0.08);
+}
+
+.slider-label {
+    font-size: 8px;
+    color: #C4A46C;
+    white-space: nowrap;
+}
+
+.pixel-range {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    height: 8px;
+    background: #5C3D1E;
+    outline: none;
+    border: 2px solid #C4A46C;
+}
+
+.pixel-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #5BCB5B;
+    border: 2px solid #3a8a3a;
+    cursor: pointer;
+}
+
+.slider-value {
+    font-size: 10px;
+    color: #5BCB5B;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* ---------- Output Area ---------- */
+.output-wrapper {
+    border: 3px solid #87CEEB;
+    background-color: rgba(135, 206, 235, 0.06);
+    animation: fadeIn 0.2s ease-in;
+}
+
+.output-wrapper.hidden {
+    display: none;
+}
+
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    background-color: rgba(135, 206, 235, 0.12);
+    border-bottom: 2px solid #87CEEB;
+}
+
+.output-title {
+    font-size: 9px;
+    color: #87CEEB;
+}
+
+.output-text {
+    padding: 10px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 8px;
+    line-height: 1.8;
+    color: #e0e0e0;
+    max-height: 200px;
+    overflow-y: auto;
+    word-break: break-word;
+}
+
+/* Custom scrollbar for 8-bit feel */
+.output-text::-webkit-scrollbar {
+    width: 8px;
+}
+
+.output-text::-webkit-scrollbar-track {
+    background: #5C3D1E;
+}
+
+.output-text::-webkit-scrollbar-thumb {
+    background: #C4A46C;
+    border: 1px solid #5C3D1E;
+}
+
+/* ---------- Status Bar ---------- */
+.status-bar {
+    font-size: 7px;
+    padding: 5px 8px;
+    color: #C4A46C;
+    border-top: 2px dashed #5C3D1E;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.status-bar.error {
+    color: #ff6b6b;
+}
+
+.status-bar.success {
+    color: #5BCB5B;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Pixel-art decorative border (applied to body via pseudo) ---------- */
+body::before {
+    content: "";
+    display: block;
+    height: 4px;
+    background: repeating-linear-gradient(90deg,
+            #5BCB5B 0px, #5BCB5B 8px,
+            #87CEEB 8px, #87CEEB 16px,
+            #C4A46C 16px, #C4A46C 24px,
+            #5C3D1E 24px, #5C3D1E 32px);
+}
+
+body::after {
+    content: "";
+    display: block;
+    height: 4px;
+    background: repeating-linear-gradient(90deg,
+            #5C3D1E 0px, #5C3D1E 8px,
+            #C4A46C 8px, #C4A46C 16px,
+            #87CEEB 16px, #87CEEB 24px,
+            #5BCB5B 24px, #5BCB5B 32px);
+}
